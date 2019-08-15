@@ -20,13 +20,15 @@ end
     if !song.artist 
       song.artist = self
     end
-    @songs << song
-    @songs.uniq
-  end
+    if !@songs.include?(song) 
+  @songs << song
+   end
+ end
     
-  def genre=(genre)
+  def genres
     @genre = genre
     genre.songs << self unless genre.songs.include?(self)
+    @@all << self
   end
 
   def self.new_from_filename(file_name)

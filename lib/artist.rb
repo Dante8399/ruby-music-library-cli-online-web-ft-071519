@@ -14,7 +14,7 @@ class Artist
 
 def self.all
     @@all
-  end
+end
 
   def add_song(song)
     if !song.artist 
@@ -22,6 +22,7 @@ def self.all
     end
     @songs << song
     @songs.uniq
+  end
     
   def genre=(genre)
     @genre = genre

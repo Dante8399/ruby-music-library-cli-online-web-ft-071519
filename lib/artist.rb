@@ -32,8 +32,6 @@ end
    
    self.songs.collect do |song|
       song.genre
-      unless song.genre.include?(genre)
-    end
   end
   end
     

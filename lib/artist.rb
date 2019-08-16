@@ -25,10 +25,18 @@ end
    end
  end
     
-  def genres(genre)
-    @genre = genre
-    genre.songs << self unless genre.songs.include?(self)
-    @@all << self
+  def genres
+    #@genre = genre
+   # genre.songs << self unless genre.songs.include?(self)
+   # @@all << self
+   
+   self.songs.collect do |song|
+      song.genre
+      unless song.genre.include?(genre)
+    end
+  end
+  end
+    
   end
 
   def self.new_from_filename(file_name)
@@ -49,6 +57,5 @@ end
       song.artist = artist
       song.genre = genre
     end
-  end
+ end
 
-end

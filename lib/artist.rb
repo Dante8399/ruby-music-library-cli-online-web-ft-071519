@@ -32,8 +32,7 @@ end
    
    self.songs.collect do |song|
       song.genre
-  end
-  songs.collect.uniq
+  end.uniq
   end
     
   end

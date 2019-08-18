@@ -17,7 +17,19 @@ class Song
   def self.all
     @@all
   end
+  
 
+  # def self.find_by_name(name)
+  #   all.find do |song|
+  #     song.name == name
+  #   end
+  # end
+  
+  
+  # def self.find_or_create_by_name(name)
+  #   find_by_name(name) || create(name)
+  # end
+  
   def artist=(artist)
     @artist = artist
     artist.add_song(self)
@@ -37,14 +49,17 @@ class Song
     new_song = self.new(song[1], artist, genre)
   end
 
-  def self.create_from_filename(file_name)
-    song = split_filename(file_name)
-    artist = Artist.find_or_create_by_name(song[0])
-    genre = Genre.find_or_create_by_name(song[2])
 
-    self.create(song[1]).tap do |song|
-      song.artist = artist
-      song.genre = genre
+  def self.create_from_filename(file_name)
+    all << new_from_filename(file_name)
+    #@all << song
+    # song = split_filename(file_name)
+    # artist = Artist.find_or_create_by_name(song[0])
+    # genre = Genre.find_or_create_by_name(song[2])
+
+    # self.create(song[1]).tap do |song|
+    #   song.artist = artist
+    #   song.genre = genre
     end
   end
 

@@ -26,10 +26,6 @@ end
  end
     
   def genres
-    #@genre = genre
-   # genre.songs << self unless genre.songs.include?(self)
-   # @@all << self
-   
    self.songs.collect do |song|
       song.genre
   end.uniq
